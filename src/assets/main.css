@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --color-asfalto: #16191d;
+  --color-grafite: #2b3036;
+  --color-concreto: #f2f1ec;
+  --color-papel: #fbfaf7;
+  --color-linha: #dcdad1;
+  --color-muted: #666a71;
+  --color-placa: #d92b3a;
+  --color-placa-escuro: #b01f2d;
+}
+
+@layer base {
+  body { @apply bg-concreto font-sans text-asfalto antialiased; }
+  :focus-visible { outline: 2px solid var(--color-placa); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  }
+}
+
+@layer components {
+  .btn-primary { @apply inline-flex cursor-pointer items-center justify-center rounded-lg bg-asfalto px-4 py-2.5 text-sm font-semibold text-papel transition-colors hover:bg-grafite disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-red { @apply inline-flex cursor-pointer items-center justify-center rounded-lg bg-placa px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-placa-escuro disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-outline { @apply inline-flex cursor-pointer items-center justify-center rounded-lg border border-asfalto/25 bg-transparent px-4 py-2.5 text-sm font-semibold text-asfalto transition-colors hover:border-asfalto hover:bg-white disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-link { @apply cursor-pointer text-sm font-semibold underline underline-offset-4 hover:text-placa disabled:opacity-50; }
+  .campo { @apply w-full rounded-lg border border-linha bg-white px-3 py-2.5 text-sm text-asfalto placeholder:text-muted/70; }
+  .rotulo { @apply mb-1.5 block text-sm font-medium text-grafite; }
+  .badge { @apply inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold; }
+
+  /* Placa de locadora: identifica cada pedido */
+  .placa { @apply inline-flex flex-col items-stretch overflow-hidden rounded-md border-2 border-asfalto bg-white text-center font-display leading-none; }
+  .placa > span:first-child { @apply bg-placa px-2 py-0.5 text-[9px] font-semibold tracking-[0.2em] text-white; }
+  .placa > span:last-child { @apply px-3 py-1.5 text-lg font-bold tracking-wider text-asfalto; }
+}
