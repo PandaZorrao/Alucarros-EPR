@@ -5,7 +5,6 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   server: {
     allowedHosts: [
-       '.vercel.app',
       'sb-430f3t9p3p9c.vercel.run'
     ]
   }
