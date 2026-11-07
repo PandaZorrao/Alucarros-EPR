@@ -4,10 +4,14 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   server: {
-    allowedHosts: [
-      'sb-430f3t9p3p9c.vercel.run'
-    ]
-  }
+  allowedHosts: ['.vercel.run'],
+  proxy: {
+    '/api': {
+      target: 'http://localhost:3000',
+      rewrite: (path) => path.replace(/^\/api/, ''),
+    },
+  },
+},
   plugins: [
     vue(),
     tailwindcss(),
