@@ -76,7 +76,7 @@ export const store = reactive({
     } catch (e) {
       console.error('Erro ao carregar pedidos:', e)
       this.pedidos = []
-      this.erro = 'Não foi possível carregar os pedidos. Confirme se a API está rodando (npm run api).'
+      this.erro = 'Não foi possível carregar os pedidos. Tente novamente ou recarregue a página.'
     } finally {
       this.carregando = false
     }

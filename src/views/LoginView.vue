@@ -23,7 +23,7 @@ onMounted(async () => {
     usuarios.value = await api.getUsuarios()
   } catch (e) {
     console.error(e)
-    erro.value = 'Não foi possível carregar os usuários. Confirme se a API está rodando (npm run api).'
+    erro.value = 'Não foi possível carregar os usuários. Tente novamente ou recarregue a página.'
   } finally {
     carregando.value = false
   }
@@ -48,7 +48,7 @@ const cadastrar = async () => {
     store.fazerLogin(await api.criarUsuario(novo))
   } catch (e) {
     console.error(e)
-    erro.value = 'Não foi possível concluir o cadastro. Confirme se a API está rodando (npm run api).'
+    erro.value = 'Não foi possível concluir o cadastro. Tente novamente ou recarregue a página.'
   } finally {
     salvando.value = false
   }

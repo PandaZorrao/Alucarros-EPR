@@ -50,7 +50,7 @@ const confirmar = async () => {
     store.irPara('dashboard')
   } catch (e) {
     console.error(e)
-    erroApi.value = 'Não foi possível salvar o pedido. Confirme se a API está rodando (npm run api).'
+    erroApi.value = 'Não foi possível salvar o pedido. Tente novamente ou recarregue a página.'
   } finally {
     salvando.value = false
   }

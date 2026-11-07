@@ -29,7 +29,7 @@ onMounted(async () => {
     grupos.value = gs.map((g) => ({ ...g, imagemBase: carros.find((c) => c.grupoId === g.id)?.imagem ?? '' }))
   } catch (e) {
     console.error(e)
-    erroGrupos.value = 'Não foi possível carregar a frota. Confirme se a API está rodando (npm run api).'
+    erroGrupos.value = 'Não foi possível carregar a frota. Tente novamente ou recarregue a página.'
   } finally {
     carregando.value = false
   }
